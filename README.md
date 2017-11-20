@@ -2,7 +2,7 @@ Django based Web Blog created using Django 1.8 framework and Python 2.7 along wi
 The website created is pulled and hosted on pythonanywhere. 
 Edits and changes are added frequently.
 
-Take a look @ https://www.tiwansh.pythonanywhere.com/
+Take a look @ https://tiwansh.pythonanywhere.com
 
 It is a blog with following features :
  1. Multi-user login.
