@@ -13,7 +13,8 @@ body{
 }
 
 .page-header{ 
-	background-color: #ff9400;
+	color: #4286f4;
+	background-color: #4286f4;
     margin-top: 8px;
     margin-right: 10px;
     padding: 20px 20px 20px 20px;
@@ -66,7 +67,7 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-	  background: #ff9400;
+	  background: #4286f4;
 	  text-align: center;
 	  border-radius: 10px;
 	  margin: 10px;
@@ -101,7 +102,7 @@ span{
 }
 
 .rightside h2{
-	background-color: #ff9400;
+	background-color: #4286f4;
 	border-radius: 5px;
 	color:#ffffff;
 	margin: 10px;
