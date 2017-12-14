@@ -33,15 +33,54 @@
 	            </div>
 	        </div>
 	    </div>
+
+	    <!-- ---------------------------NEWS SECTION BEGINS-------------------- --> 
+	    <div id="news">
+
+	    </div>
+
+	    <script>
+			var header = document.getElementById('news');
+			
+			var requestURL = 'https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=1e8acb9983124a3db03823d947909788';
+			var request = new XMLHttpRequest();
+			request.open('GET', requestURL);
+			request.responseType = 'text';
+			request.send();
+			
+			request.onload = function(){
+				populateDivs();
+			}
+			function populateDivs(){
+				//create 3 news spans with some effect
+				var myh1 = document.createElement('div');
+				myh1.setAttribute("class","newssections");
+				myh1.textContent = "TattiHaggaJeena";
+				header.appendChild(myh1);
+
+
+				var myh2 = document.createElement('div');
+				myh2.setAttribute("class","newssections");
+				myh2.textContent = "TattiHaggaJeena2";
+				header.appendChild(myh2);
+
+
+				var myh3 = document.createElement('div');
+				myh3.setAttribute("class","newssections");
+				myh3.textContent = "TattiHaggaJeena3";
+				header.appendChild(myh3);
+
+
+			}
+		</script>
+
+	    <!-- -------------------------------FOOTER SECTION BEGINS--------------------------------------- -->
 	    <div style = "height:350px;"></div>
 	    <div class = "footer">
 	    	<span>Reach me @ | </span>
 	    	<span class = "foot"><a href="/https://www.linkedin.com/in/anshuman-tiwari-37324378/"><img src="{% static "img/linkedin.png"%}" height = "25" width = "25" /></a></span>
 	    	<span class = "foot"><a href="/https://github.com/tiwansh"><img src="{% static "img/github.png"%}" height = "25" width = "25"></a></span>
 	    	<span class = "foot"><a href="/https://facebook.com/anshuman.tiwari.33"><img src="{% static "img/facebook.png"%}" height = "25" width = "25"></a></span>
-	    </div>
-	    <div>
-
 	    </div>
 	</body>
 </html>
