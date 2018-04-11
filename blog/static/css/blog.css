@@ -22,12 +22,16 @@ body{
     top: 0px;
     left:20px;
     right:20px;
+    width: 100%;
+}
+
+.page-header span{
+	display: inline-block;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: red;
+    color: #ffffff;
     font-size: 36pt;
-    text-decoration: none;
 }
 
 .content {
@@ -137,4 +141,8 @@ span{
 	border-radius: 5px;
 	border-width: 3px; 
 	display: inline-block;
+}
+
+#background-image{
+	width: 100%;
 }

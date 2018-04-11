@@ -10,21 +10,29 @@
     </head>
    <body>
 	    <div class="page-header">
-	    	{% if user.is_authenticated %}
-	    		<a href="{% url 'post_new' %}" class="top-menu" style = "font-size:25px;">Add post | <span class="glyphicon glyphicon-plus"></span></a>
-	    	{% else %}
-	    		<a href="/admin" style = "float:right; weight:10px; font-size:25px; color:#ffffff">Log In | <span class = "glyphicon glyphicon-user"></span></a>
-	    	{% endif %}
-	        <h1><a href="/">Anshuman's Blog</a></h1>
-	        <div class = "rightside">
-		    	<h2><center>About the author</center></h2>
-		    	<img src="{% static "img/anshuman.jpg" %}" height = "144" width = "192">
-		    	<p>Hey, I am Anshuman and this website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Skilled in C++ and Python.</p>
-	    	</div>
+	    	<span class = "head"><img src="{% static "img/logo.png" %}" height = "60" width = "80" display = "inline"/> </span><
+	    	<span class = "head"><h1><a href="/">Anshuman's lol Blog</a></h1></span>
+	        <span class = "head">
+	        	<p>
+	        	{% if user.is_authenticated %}
+	    			<a href="{% url 'post_new' %}" class="top-menu" style = "font-size:25px;">Add post | <span class="glyphicon glyphicon-plus"></span></a>
+	    		{% else %}
+	    			<a href="/admin" style = "float:right; weight:10px; font-size:25px; color:#ffffff">Log In | <span class = "glyphicon glyphicon-user"></span></a>
+	    		{% endif %}
+	    		</p>
+	        </span>
+
+	      
 	    </div>
 
-	    
+       <div class = "rightside">
+	    	<h2><center>About author</center></h2>
+	    	<img src="{% static "img/anshuman.jpg" %}" height = "144" width = "192">
+	    	<p>Hey, I am Anshuman and this website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Skilled in C++ and Python.</p>
+       </div>
 
+       <img id = "background-image" src= "{% static "img/background-image.jpg" %}">
+	  	     	
 	    <div class="content container">
 	        <div class="row">
 	            <div class="col-md-8">
