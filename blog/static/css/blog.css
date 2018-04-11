@@ -133,6 +133,7 @@ span{
 
 #news div{
 	display: inline-block;
+	background-color: red;
 }
 
 .newssections{
@@ -145,4 +146,4 @@ span{
 
 #background-image{
 	width: 100%;
-}
+}	
