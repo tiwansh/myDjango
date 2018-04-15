@@ -63,3 +63,9 @@ def post_share(request, pk):
     return render(request, 'blog/post_share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
+
+
+
+def about_admins(request):
+	context = {}
+	return render(request, 'blog/about_admins.html', context)

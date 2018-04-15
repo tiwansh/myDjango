@@ -15,7 +15,7 @@
 
 	        <span class = "head" style = "float:right">
 	        	<span class="button-span">
-	        		<a href="#" class="myButton">About admins</a>
+	        		<a href="{% url 'about_admins'%}" class="myButton">About admins</a>
 	        		<a href="#" class="myButton">Contact</a>
 	        		<a href="#" class="myButton">Register</a>
 	        	</span>
@@ -31,11 +31,6 @@
 	      
 	    </div>
 
-       <div class = "rightside">
-	    	<h2><center>About author</center></h2>
-	    	<img src="{% static "img/anshuman.jpg" %}" height = "144" width = "192">
-	    	<p>Hey, I am Anshuman and this website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Skilled in C++ and Python.</p>
-       </div>
 
        <img id = "background-image" src= "{% static "img/background-image.jpg" %}">
 	  	     	
