@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+   <h2>Signup with Elixir</h2>
+   <form method = "POST" class = "signup-form">
+   		{% csrf_token %}
+   		{{ form.as_p }}
+   		<button class="button" type="submit">Sign up</button>
+   </form>
+{% endblock %}
