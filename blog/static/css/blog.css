@@ -96,7 +96,7 @@ span{
 	margin:25px;
 	margin-right:50px; 
 	padding: 10px;
-	z-index: 100;
+	z-index: 1;
 	border-style:solid;
 	border-width: 3px;
 	width: 250;
@@ -155,4 +155,10 @@ span{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.signup-form{
+	font-size:16px;
+	width:150%;
+	background-color: grey;
 }

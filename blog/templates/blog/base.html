@@ -17,7 +17,7 @@
 	        	<span class="button-span">
 	        		<a href="{% url 'about_admins' %}" class="myButton">About admins</a>
 	        		<a href="#" class="myButton">Contact</a>
-	        		<a href="#" class="myButton">Register</a>
+	        		<a href="{% url 'signup' %}" class="myButton">Register</a>
 	        	</span>
 	        	<p>
 	        	{% if user.is_authenticated %}

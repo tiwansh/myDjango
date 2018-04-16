@@ -4,6 +4,10 @@ from django.utils import timezone
 from .forms import PostForm
 from django.core.mail import send_mail
 from .forms import EmailPostForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
 # Create your views here.
 
 def post_list(request):
@@ -69,3 +73,18 @@ def post_share(request, pk):
 def about_admins(request):
 	context = {}
 	return render(request, 'blog/about_admins.html', context)
+
+def signup(request):
+	if request.method == 'post':
+		form = UserCreationForm(request.post)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			raw_password = form.cleaned_data.get('password')
+			user = authenticate(username=username, password = raw_password)
+			login(request, user)
+			return redirect('home')
+	else:
+		form = UserCreationForm()
+		return render(request, 'blog/signup.html', {'form' : form})
+
