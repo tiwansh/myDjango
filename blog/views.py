@@ -7,6 +7,7 @@ from .forms import EmailPostForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -75,16 +76,15 @@ def about_admins(request):
 	return render(request, 'blog/about_admins.html', context)
 
 def signup(request):
-	if request.method == 'post':
-		form = UserCreationForm(request.post)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data.get('username')
-			raw_password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password = raw_password)
-			login(request, user)
-			return redirect('home')
-	else:
-		form = UserCreationForm()
-		return render(request, 'blog/signup.html', {'form' : form})
-
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'blog/signup.html', {'form': form})
