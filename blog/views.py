@@ -4,7 +4,7 @@ from django.utils import timezone
 from .forms import PostForm
 from django.core.mail import send_mail
 from .forms import EmailPostForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
@@ -88,3 +88,11 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'blog/signup.html', {'form': form})
+
+
+def logout(request):
+    if request.method == 'POST':
+        logout(request)
+        return render(request, 'blog/logout.html', {})
+    else:
+        return render(request, 'blog/logout.html', {})
