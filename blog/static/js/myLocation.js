@@ -1,11 +1,15 @@
 function initMap(){
 	map = new google.maps.Map(document.getElementById('dispmap'),{
-		center : {lat:-34.397, lng:150.644},
+		center : {lat:12.958065, lng:80.240638},
 		zoom: 6,
 	});
-
+ 
 	//var map = new google.maps.Map(document.getElementById())
 
+	var marker = new google.maps.Marker({
+          position: {lat:12.958065, lng:80.240638},
+          map: map
+        });
 	
 	infoWindow = new google.maps.InfoWindow;
 
@@ -16,7 +20,7 @@ function initMap(){
 				lng: position.coords.longitude
 			};
 			infoWindow.setPosition(pos);
-			infoWindow.setContent("You");
+			infoWindow.setContent("You are here !");
 			infoWindow.open(map);
 			map.setCenter(pos);
 		},
