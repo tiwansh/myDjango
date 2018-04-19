@@ -28,7 +28,7 @@
 	        	<span>
 	        		<div>
 	        			{% if user.is_authenticated %}
-		    				<a href="{% url 'post_new' %}" class="myButton" style = "font-size:25px;color:#ff0000">Add post | <span class="glyphicon glyphicon-plus"></span></a>
+		    				<a href="{% url 'post_new' %}" class="myButton">+ Add post</a>
 		    			{% else %}
 		    				<a href="{% url 'login'%}" class = "myButton">Log In</a>
 		    			{% endif %}
@@ -37,7 +37,7 @@
 	    		</span>
 	    		<span>
 	    			{% if user.is_authenticated %}
-	    				<a href="{% url 'logout' %}">Logout</a>
+	    				<a href="{% url 'logout' %}" class="myButton">Logout</a>
 	    			{% endif %}
 	    		</span>
 	        </span>
@@ -111,7 +111,7 @@
 		</script>
 
 	    <!-- -------------------------------FOOTER SECTION BEGINS--------------------------------------- -->
-	    <div style = "height:350px;"></div>
+	    <div style = "height:300px;"></div>
 	    <div class = "footer">
 	    	<span>Reach me @ | </span>
 	    	<span class = "foot"><a href="https://www.linkedin.com/in/anshuman-tiwari-37324378/"><img src="{% static "img/linkedin.png"%}" height = "25" width = "25" /></a></span>
