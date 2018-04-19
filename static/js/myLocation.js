@@ -1,9 +1,16 @@
 function initMap(){
 	map = new google.maps.Map(document.getElementById('dispmap'),{
-		center : {lat:-34.397, lng:150.644},
-		zoom: 6
+		center : {lat:12.958065, lng:80.240638},
+		zoom: 6,
 	});
+ 
+	//var map = new google.maps.Map(document.getElementById())
 
+	var marker = new google.maps.Marker({
+          position: {lat:12.958065, lng:80.240638},
+          map: map
+        });
+	
 	infoWindow = new google.maps.InfoWindow;
 
 	if(navigator.geolocation){
@@ -13,7 +20,7 @@ function initMap(){
 				lng: position.coords.longitude
 			};
 			infoWindow.setPosition(pos);
-			infoWindow.setContent("You");
+			infoWindow.setContent("You are here !");
 			infoWindow.open(map);
 			map.setCenter(pos);
 		},
@@ -37,3 +44,22 @@ function initMap(){
       	loadWeather(position.coords.latitude+','+position.coords.longitude)
       });
   }
+
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}

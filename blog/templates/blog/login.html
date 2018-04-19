@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{%block slideshow-wallpapers%}
+	<h2 ><center>Let's begin !</center></h2>
+{%endblock%}
+
+{% block content %}
+	<h2>Login to Elixir</h2>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Login</button>
+	</form>
+{% endblock %}

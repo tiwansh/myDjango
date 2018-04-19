@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 from . import views
 
 
@@ -10,5 +11,6 @@ urlpatterns = [
 	url(r'^post/(?P<pk>\d+)/share/$', views.post_share, name='post_share'),
 	url(r'^about_admins/$', views.about_admins, name ='about_admins'),
 	url(r'^signup/$', views.signup, name='signup'),
-	url(r'^logout/$', views.logout, name='logout')
+	url(r'^logout/$', views.logout, name='logout'),
+	url(r'^login/$', auth_views.login, {'template_name': 'blog/login.html'}, name='login')
 ]
