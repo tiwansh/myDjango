@@ -1,5 +1,11 @@
 {% extends 'blog/base.html' %}
 
+{% load staticfiles %}
+
+{%block slideshow-wallpapers%}
+    
+{%endblock%}
+
 {% block content %}
     <div class="post">
         {% if post.published_date %}
@@ -12,6 +18,8 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
-        <p><a href="{% url 'post_share' pk=post.pk %}">Share this post</a></p>
+        <br>
+        <center><p style="background-color:blue;display:table;border-radius:1px;padding:6px;color:white"><img src="{% static "img/share.png"%}" height="25px" width="25px"><a href="{% url 'post_share' pk=post.pk %}" style="color:white">  Share this post</a></p></center>
+
     </div>
 {% endblock %}
