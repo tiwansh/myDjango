@@ -71,7 +71,7 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-	  background: #4286f4;
+	  background: green;
 	  text-align: center;
 	  border-radius: 10px;
 	  margin: 10px;
@@ -211,3 +211,6 @@ span{
 .w3-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
 .w3-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
 
+.mySlides{
+display:none;
+}

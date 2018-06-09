@@ -12,7 +12,7 @@
         <script src="{% static 'js/myLocation.js'%}" type='text/javascript'></script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJVmTsmOb77JvgVDlt80HMRC_qkDnvkfU&callback=initMap"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" charset="utf-8"></script>
-
+		<link rel="shortcut icon" type="image/png" href={% static "img/favicon.ico"% }/>
     </head>
    <body>
 	    <div class="page-header">
@@ -42,7 +42,7 @@
 	    		</span>
 	        </span>
 
-	      
+
 	    </div>
 
 	    {% block slideshow-wallpapers %}
@@ -50,13 +50,11 @@
 			<img class = "mySlides" src="{% static 'img/image1.jpg'%}" style="width:100%">
 			<img class = "mySlides" src="{% static 'img/image2.jpg'%}" style="width:100%">
 			<img class = "mySlides" src="{% static 'img/image3.jpg'%}" style="width:100%">
-			
-			<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  			<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
 		</div>
 		<br>
 		{% endblock %}
-	  	     	
+
 	    <div class="content container">
 	        <div class="row">
 	            <div class="col-md-8">
@@ -65,12 +63,12 @@
 	            </div>
 	        </div>
 	    </div>
-	    
 
 
 
 
-	    <!-- ---------------------------NEWS SECTION BEGINS-------------------- --> 
+
+	    <!-- ---------------------------NEWS SECTION BEGINS-------------------- -->
 	    <div id="news">
 
 	    </div>
@@ -120,7 +118,7 @@
 	    </div>
 
 	    <script type="text/javascript">
-	    	showDivs(1);
+	    	carousel();
 	    </script>
 	</body>
 </html>
