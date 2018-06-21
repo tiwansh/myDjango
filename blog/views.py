@@ -99,3 +99,13 @@ def logout(request):
         return render(request, 'blog/logout.html', {})
     else:
         return render(request, 'blog/logout.html', {})
+
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return render(request, 'blog/post_delete.html')
+    else:
+        post.delete()
+    return render(request, 'blog/post_delete.html')
