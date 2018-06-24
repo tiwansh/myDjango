@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.utils import timezone
@@ -22,6 +23,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -36,6 +38,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+@login_required()
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -109,3 +112,10 @@ def post_delete(request, pk):
     else:
         post.delete()
     return render(request, 'blog/post_delete.html')
+
+
+@login_required()
+def user_specific_post_list(request):
+    posts = Post.objects.filter(author=request.user)
+    # if no posts, add post redirect
+    return render(request, 'blog/post_list_user.html', {'posts': posts})

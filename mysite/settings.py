@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tiwansh.pythonanywhere.com']
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/loggeduser'
 
 # Application definition
 
