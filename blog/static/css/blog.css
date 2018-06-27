@@ -214,3 +214,11 @@ span{
 .mySlides{
 display:none;
 }
+
+.logout_links{
+    display: inline-block;
+    border-width:2px;
+    border-style:solid;
+    border-radius:10px;
+    background-color:;
+}

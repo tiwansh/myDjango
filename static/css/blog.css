@@ -214,3 +214,7 @@ span{
 .mySlides{
 display:none;
 }
+
+.logout_links{
+    display: inline-block;
+}

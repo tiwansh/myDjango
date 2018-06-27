@@ -4,5 +4,9 @@
 
 
 {% block content %}
-   <h2>You have been successfully logged out !</h2>
+<h2>You have been successfully logged out !</h2>
+<div>
+    <a class="logout_links "href="/"><h3>Go to homepage</h3></a>
+    <a class="logout_links" href="{% url 'login'%}"><h3>Login as another user</h3></a>
+</div>
 {% endblock %}
