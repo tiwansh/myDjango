@@ -7,9 +7,8 @@ h1 a{
 	font-family: 'Lobster';
 }
 
-body{
-	padding-left: 15px;
-	padding-right: 15px;
+.navbar{
+	border-radius: 0;
 }
 
 .page-header{ 
@@ -85,11 +84,11 @@ h1, h2, h3, h4 {
 	  overflow: hidden;
 }
 
-span{
+/*span{
 	font-family: 'Helvetica';
 	font-weight: bold;
 	font-size: 20px;
-}
+}*/
 
 .rightside{
 	/*display: block;*/
@@ -217,4 +216,12 @@ display:none;
 
 .logout_links{
     display: inline-block;
+    border-width:2px;
+    border-style:solid;
+    border-radius:10px;
+    background-color:;
+}
+
+li{
+	display: inline;
 }
