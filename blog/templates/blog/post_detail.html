@@ -18,6 +18,7 @@
 
 
 
+
 </script>
 
 <div class="post">
@@ -28,7 +29,7 @@
             class="glyphicon glyphicon-trash"></span></a>
     {% endif %}
     <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
+    <p class="postcontent">{{ post.text|safe|linebreaksbr }}</p>
     <br>
     {% if post.published_date %}
     <div class="date">

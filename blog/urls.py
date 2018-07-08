@@ -13,5 +13,8 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'blog/logout.html'}, name='logout'),
     url(r'^login/$', auth_views.login, {'template_name': 'blog/login.html'}, name='login'),
     url(r'^post/(?P<pk>\d+)/deleted/$', views.post_delete, name="post_delete"),
-    url(r'^loggeduser$', views.user_specific_post_list, name="user_specific_posts")
+    url(r'^loggeduser/$', views.user_specific_post_list, name="user_specific_posts"),
+    url(r'^profile_update/$', views.profile_update, name="profile_update"),
+    url(r'^profile_detail/$', views.profile_detail, name="profile_detail")
+
 ]

@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{%block slideshow-wallpapers%}
+
+{%endblock%}
+
+{% block content %}
+<div class="container container-fluid">
+    <div class="panel panel-default">
+        <center>
+        <div class="panel-body">
+        	<center><h1>Your user profile</h1></center>
+            <img src="{{ user.profile.profile_picture.url }}" class="img-responsive img-circle">
+            <h3>Username : {{ user }}</h3>
+            <h3>Bio : {{user.profile.bio}}</h3>
+            <h3>Location : {{ user.profile.location }}</h3>
+            <h3>Date of Birth : {{ user.profile.date_of_birth }}</h3>
+            <button class="btn btn-default"><a href="{% url 'profile_update'%}">Update your profile</a></button>
+        </div>
+        </center>
+    </div>
+</div>
+
+{% endblock %}

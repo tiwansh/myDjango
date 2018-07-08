@@ -33,10 +33,10 @@ h1 a{
     font-size: 36pt;
 }
 
-.content {
+/*.content {
     margin-left: 40px;
 }
-
+*/
 h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
@@ -63,6 +63,7 @@ h1, h2, h3, h4 {
 
 .post {
     margin-bottom: 70px;
+    text-align: justify;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -70,10 +71,10 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-	  background: green;
+	  background:  #F8F8F8;
 	  text-align: center;
-	  border-radius: 10px;
-	  margin: 10px;
+	  /*border-radius: 10px;*/
+	  /*margin: 10px;*/
 	  padding: 3px;
 	  z-index:1;
 	  /*position: absolute;*/
@@ -212,6 +213,7 @@ h1, h2, h3, h4 {
 
 .mySlides{
 display:none;
+width: 100%;
 }
 
 .logout_links{
@@ -222,6 +224,7 @@ display:none;
     background-color:;
 }
 
-li{
-	display: inline;
+.navbar-header a{
+	font-family: 'Yellowtail', Helvetica;
 }
+

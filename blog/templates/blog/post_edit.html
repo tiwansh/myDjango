@@ -5,6 +5,11 @@
 {%endblock%}
 
 {% block content %}
+
+<script>
+    var editor = new MediumEditor('.editable');
+</script>
+
 <h1>New Post</h1>
 <form method="POST" class="post-form">{% csrf_token %}
     {{ form.as_p}}

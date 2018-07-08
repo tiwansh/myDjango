@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="container container-fluid">
+<div class="panel panel-default">
+    <div class="panel body"">
+        <h2><center>Update your profile</center></h2>
+        <div class="form-group" >
+            <form method="POST" class="form-horizontal" role="form" >
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                {% for field in form %}
+                    <label class="control-label col-sm-5" style="border:none">{{ field.label_tag}} </label>
+                    <div class="form-control" style="border:none;" >{{ field }} </div>
+                {% endfor %}
+                <div class="col-sm-offset-5">
+                    <button class="button" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

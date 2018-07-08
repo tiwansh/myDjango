@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post
+from .models import Post, Profile
 from django.utils import timezone
-from .forms import PostForm
+from .forms import PostForm, SignupForm, ProfileForm
 from django.core.mail import send_mail
 from .forms import EmailPostForm
 from django.contrib.auth import login, authenticate, logout
@@ -84,7 +84,7 @@ def about_admins(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -93,7 +93,7 @@ def signup(request):
             login(request, user)
             return redirect('/')
     else:
-        form = UserCreationForm()
+        form = SignupForm()
     return render(request, 'blog/signup.html', {'form': form})
 
 
@@ -120,3 +120,36 @@ def user_specific_post_list(request):
     posts = Post.objects.filter(author=request.user)
     # if no posts, add post redirect
     return render(request, 'blog/post_list_user.html', {'posts': posts})
+
+
+@login_required()
+def profile_update(request):
+    try:
+        profile = request.user.profile
+    except Exception:
+        profile = Profile(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            print("Nahi hai")
+            profile = form.save(commit=False)
+            # Profile.objects.create(user=request.user)
+            profile.save()
+            # context = {
+            #     'user': str(request.user),
+            #     'location': str(request.POST.get('location')),
+            #     'date_of_birth': str(request.POST.get('date_of_birth')),
+            # }
+            # print(context)
+            return render(request, 'blog/profile_detail.html', {'form': form})
+    else:
+        form = ProfileForm(instance=profile)
+
+    return render(request, 'blog/profile_update.html', {'form': form})
+
+
+@login_required()
+def profile_detail(request):
+    form = ProfileForm(request.POST)
+    return render(request, 'blog/profile_detail.html', {'form': form})
