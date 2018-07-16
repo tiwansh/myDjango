@@ -9,6 +9,7 @@ h1 a{
 
 .navbar{
 	border-radius: 0;
+
 }
 
 .page-header{ 
@@ -71,11 +72,11 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-	  background:  #F8F8F8;
+	  background:  #080808;
 	  text-align: center;
 	  /*border-radius: 10px;*/
 	  /*margin: 10px;*/
-	  padding: 3px;
+	  padding: 8px;
 	  z-index:1;
 	  /*position: absolute;*/
 	  clear: both;
@@ -226,5 +227,9 @@ width: 100%;
 
 .navbar-header a{
 	font-family: 'Yellowtail', Helvetica;
+	font-size:30px;
 }
 
+nav span{
+    font-size: 15px;
+}

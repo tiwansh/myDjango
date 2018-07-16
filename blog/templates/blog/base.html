@@ -32,7 +32,7 @@
 <body>
 
 <!-- navbar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse" style="width=40px">
     <div class="container-fluid">
         <!-- Header -->
         <div class="navbar-header">
@@ -74,7 +74,7 @@
                 {% if user.is_authenticated %}
                 <li>
                     <a href="{% url 'profile_detail' %}">
-                        <span class="">Profile</span>
+                        <span class="glyphicon glyphicon-user">&ensp;Profile</span>
                     </a>
                 </li>
                 {% endif %}

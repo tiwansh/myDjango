@@ -10,15 +10,18 @@
 <div class="container container-fluid">
     <div class="panel panel-default">
         <center>
-        <div class="panel-body">
-        	<center><h1>Your user profile</h1></center>
-            <img src="{{ user.profile.profile_picture.url }}" class="img-responsive img-circle">
-            <h3>Username : {{ user }}</h3>
-            <h3>Bio : {{user.profile.bio}}</h3>
-            <h3>Location : {{ user.profile.location }}</h3>
-            <h3>Date of Birth : {{ user.profile.date_of_birth }}</h3>
-            <button class="btn btn-default"><a href="{% url 'profile_update'%}">Update your profile</a></button>
-        </div>
+            <div class="panel-body">
+                <center><h1>Your user profile</h1></center>
+                <img src="{{ user.profile.profile_picture.url }}" class="img-responsive img-circle"
+                     style="height:200px;width:200px">
+                <h3>Username : {{ user }}</h3>
+                <h3>Bio : {{user.profile.bio}}</h3>
+                <h3>Location : {{ user.profile.location }}</h3>
+                <h3>Date of Birth : {{ user.profile.date_of_birth }}</h3>
+                <a href="{% url 'profile_update'%}">
+                    <button class="btn btn-default">Update your profile</button>
+                </a>
+            </div>
         </center>
     </div>
 </div>

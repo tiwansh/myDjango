@@ -11,21 +11,25 @@
 <div class="container container-fluid">
     <div class="panel panel-default">
         <div class="panel body">
-            <h2>
+            <h1>
                 <center>Update your profile</center>
-            </h2>
+            </h1>
             <center>
                 <div class="form-group">
                     <form method="POST" class="form-horizontal">
                         {% csrf_token %}
                         <!-- {{ form.as_p }} -->
+                        <br>
                         {% for field in form %}
-                        <label class="">{{ field.label_tag}} </label>
-                        <div class="" style="border:none;">{{ field }}</div>
+                        <label class=""><h4>{{ field.label_tag}}</h4></label>
+                        <div class="" style="border:none;">{{ field }}</div><br>
                         {% endfor %}
-                        <div class="col-sm-offset-5">
-                            <button class="button" type="submit">Update</button>
-                        </div>
+                        <br>
+                        <center>
+                            <div>
+                                <button class="button" type="submit">Update</button>
+                            </div>
+                        </center>
                     </form>
                 </div>
             </center>
