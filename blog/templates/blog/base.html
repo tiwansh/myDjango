@@ -2,8 +2,9 @@
 
 <html>
 <head>
+    {% block title %}
     <title>Elixir</title>
-
+    {% endblock %}
     <!-- Included bootstrap libraries -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,7 +33,7 @@
 <body>
 
 <!-- navbar -->
-<nav class="navbar navbar-inverse" style="width=40px">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Header -->
         <div class="navbar-header">

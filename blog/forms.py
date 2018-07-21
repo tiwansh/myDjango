@@ -8,10 +8,10 @@ from .models import Post, Profile
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'text',)
-        widgets = {
-            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'}),
-        }
+        fields = ('post_image', 'title', 'text')
+        # widgets = {
+            # 'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'}),
+        # }
 
 
 class EmailPostForm(forms.Form):
