@@ -131,17 +131,11 @@ def profile_update(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-            form.save()
-            print("Nahi hai")
-            profile = form.save(commit=False)
-            # Profile.objects.create(user=request.user)
+            form.save(commit=False)
+            profile = form
+            print(request.user.profile.profile_picture)
             profile.save()
-            # context = {
-            #     'user': str(request.user),
-            #     'location': str(request.POST.get('location')),
-            #     'date_of_birth': str(request.POST.get('date_of_birth')),
-            # }
-            # print(context)
+            print(request.user.profile.profile_picture)
             return render(request, 'blog/profile_detail.html', {'form': form})
     else:
         form = ProfileForm(instance=profile)
@@ -151,5 +145,5 @@ def profile_update(request):
 
 @login_required()
 def profile_detail(request):
-    form = ProfileForm(request.POST)
+    form = ProfileForm(request.POST, request.FILES)
     return render(request, 'blog/profile_detail.html', {'form': form})
