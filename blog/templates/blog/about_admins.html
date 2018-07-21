@@ -5,16 +5,35 @@
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
 {%block slideshow-wallpapers%}
-    
+
 {%endblock%}
 
 {% block content %}
-    <div class="rightside">
-	    	<h2><center>About author</center></h2>
-	    	<img src="{% static "img/anshuman.jpg" %}" height = "144" width = "192">
-	    	<p>Hey, I am Anshuman and this website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Learing my way into C++, Python and Machine Learning.</p>
-     </div>
-     <div class="rightside" style="float:right"> 
-      	<div id = "dispmap" style = "height:50%;width:100%" >lolmax</div>
-     </div>
+    <div class="container container-fluid admin1 text-center">
+        <h3>whoami</h3>
+        <center><img src="{% static "img/anshuman.jpg" %}" class="img-responsive img-circle" style="width:250px;height:auto" alt="Bird"></center>
+        <br>
+        <p>I am Anshuman</p>
+    </div>
+    <div class="container container-fluid admin2 text-center">
+        <h3>What am I?</h3>
+        <p>This website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Learing my way into C++, Python and Machine Learning.</p>
+    </div>
+    <div class="container container-fluid admin3 text-center">
+        <h3>Where to find me?</h3>
+        <center><div id = "dispmap" style = "height:50%;width:50%" >lolmax</div></center>
+        <br>
+        <p>Bengaluru,Karnataka</p>
+    </div>
 {% endblock %}
+
+<!--{% block lolmax%}-->
+    <!--<div class="rightside">-->
+	    	<!--<h2><center>About author</center></h2>-->
+	    	<!--<img src="{% static "img/anshuman.jpg" %}" height = "144" width = "192">-->
+	    	<!--<p>Hey, I am Anshuman and this website is an attempt to learn Django and all its advanced elements. I am a fresh Graduate learning IT development in Automotive Industry. Learing my way into C++, Python and Machine Learning.</p>-->
+     <!--</div>-->
+     <!--<div class="rightside" style="float:right"> -->
+      	<!--<div id = "dispmap" style = "height:50%;width:100%" >lolmax</div>-->
+     <!--</div>-->
+<!--{% endblock %}-->

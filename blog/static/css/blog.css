@@ -233,3 +233,18 @@ width: 100%;
 nav span{
     font-size: 15px;
 }
+
+.admin1{
+	 background-color: #1abc9c; /* Green */
+     color: #ffffff;
+}
+
+.admin2{
+	background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+
+.admin3{
+	background-color: #ffffff; /* White */
+    color: #555555;
+}
