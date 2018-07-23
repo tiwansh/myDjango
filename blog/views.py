@@ -91,7 +91,9 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('/')
+            profile = request.user.profile
+            form = ProfileForm(instance= profile)
+            return render(request, 'blog/profile_update.html', {'form': form})
     else:
         form = SignupForm()
     return render(request, 'blog/signup.html', {'form': form})
