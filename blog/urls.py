@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^loggeduser/$', views.user_specific_post_list, name="user_specific_posts"),
     url(r'^profile_update/$', views.profile_update, name="profile_update"),
     url(r'^profile_detail/$', views.profile_detail, name="profile_detail"),
+
+
 ]

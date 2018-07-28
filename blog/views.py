@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Profile
+from .models import Post, Profile, Comment
 from django.utils import timezone
-from .forms import PostForm, SignupForm, ProfileForm
+from .forms import PostForm, SignupForm, ProfileForm, CommentForm
 from django.core.mail import send_mail
 from .forms import EmailPostForm
 from django.contrib.auth import login, authenticate, logout
@@ -20,8 +21,26 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html',
-                  {'post': post, 'post_author': str(post.author), 'request_user': str(request.user)})
+    comments = Comment.objects.filter(post=post).order_by('created_date')
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.created_date = timezone.now()
+            comment.approved = True
+            comment.save()
+            form = CommentForm()
+            return render(request, 'blog/post_detail.html',
+                          {'post': post, 'post_author': str(post.author), 'request_user': str(request.user),
+                           'comments': comments, 'comment_form': form})
+
+    else:
+        form = CommentForm()
+        return render(request, 'blog/post_detail.html',
+                      {'post': post, 'post_author': str(post.author), 'request_user': str(request.user),
+                       'comments': comments, 'comment_form': form})
 
 
 @login_required
@@ -91,9 +110,9 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            profile = request.user.profile
-            form = ProfileForm(instance= profile)
-            return render(request, 'blog/profile_update.html', {'form': form})
+            # profile = request.user.profile
+            # form = ProfileForm(instance=profile)
+            return redirect('/')
     else:
         form = SignupForm()
     return render(request, 'blog/signup.html', {'form': form})
