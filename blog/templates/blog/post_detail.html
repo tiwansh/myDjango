@@ -19,10 +19,18 @@
 
 
 
+
+
+
+
+
+
+
+
 </script>
 
 {%block title%}
-    <title>{{post.title}}</title>
+<title>{{post.title}}</title>
 {%endblock%}
 
 <div class="post">
@@ -49,6 +57,42 @@
             src="{%static 'img/share.png'%}" height="25px" width="25px"><a href="{% url 'post_share' pk=post.pk %}"
                                                                            style="color:white"> Share this post</a>
     </p></center>
+    <div>
+        <h3>Conversations</h3>
+        <hr>
+        {% if user.is_authenticated %}
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for field in comment_form %}
+                <label class="" style="border:none">Add comment</label>
+                <div class="" style="border:none;">{{ field }}</div>
+                <br>
+                {% endfor %}
+                <input class="btn btn-default" type="submit" name="Add comment" value="Add comment">
+            </form>
+        </div>
+        {% endif %}
+        <hr>
+        <div class="paragraphs">
+            {% for comment in comments %}
+            <div class="row">
+                <div class="span4">
+                    <div class="clearfix content-heading">
+                        <!--TODO add image of user-->
+                        <img src="{{ comment.author.profile.profile_picture.url }}"
+                             class="img-responsive img-circle pull-left"
+                             style="height:60px;width:60px">
+                        <h4>&nbsp;&nbsp;{{ comment.author }}</h4>
+                        <p>&nbsp;&nbsp;{{comment.text}}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+
 
 </div>
 {% endblock %}

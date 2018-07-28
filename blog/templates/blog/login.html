@@ -3,18 +3,39 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>Login to Elixir</title>
+<title>Login to Elixir</title>
 {% endblock %}
 
 {%block slideshow-wallpapers%}
-	<h2 ><center>Let's begin !</center></h2>
 {%endblock%}
 
 {% block content %}
-	<h2>Login to Elixir</h2>
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Login</button>
-	</form>
+<div class="panel-group container container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <center><h2>Login to Elixir</h2></center>
+        </div>
+        <div class="panel-body col-sm-12 col-md-12">
+            <form method="POST" class="form-horizontal" role="form">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                    {% for field in form %}
+                    <label class="control-label col-sm-5" style="border:none">{{ field.label_tag}} </label>
+                    <div class="form-control" style="border:none;">{{ field }}</div>
+                    <br>
+                    {% endfor %}
+                    <br>
+                    <center>
+                        <div class="">
+                            <button class="btn btn-default" type="submit">Sign up</button>
+                        </div>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
+

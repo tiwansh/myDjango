@@ -7,18 +7,19 @@
 {%endblock%}
 
 {%block title%}
-    <title>Join Elixir</title>
+<title>Join Elixir</title>
 {%endblock%}
-
 
 
 {% block content %}
 <div class="container container-fluid">
-    <div class="panel panel-default">
-        <div class="panel body">
+    <div class="panel panel-info">
+        <div class="panel-heading">
             <h2>
                 <center>Signup with Elixir</center>
             </h2>
+        </div>
+        <div class="panel-body">
             <div class="form-group">
                 <form method="POST" class="form-horizontal" role="form">
                     {% csrf_token %}
@@ -26,10 +27,14 @@
                     {% for field in form %}
                     <label class="control-label col-sm-5" style="border:none">{{ field.label_tag}} </label>
                     <div class="form-control" style="border:none;">{{ field }}</div>
+                    <br>
                     {% endfor %}
-                    <div class="col-sm-offset-5">
-                        <button class="button" type="submit">Sign up</button>
-                    </div>
+                    <br>
+                    <center>
+                        <div class="">
+                            <button class="btn btn-default" type="submit">Sign up</button>
+                        </div>
+                    </center>
                 </form>
             </div>
         </div>

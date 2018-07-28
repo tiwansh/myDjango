@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/deleted/$', views.post_delete, name="post_delete"),
     url(r'^loggeduser/$', views.user_specific_post_list, name="user_specific_posts"),
     url(r'^profile_update/$', views.profile_update, name="profile_update"),
-    url(r'^profile_detail/$', views.profile_detail, name="profile_detail")
+    url(r'^profile_detail/$', views.profile_detail, name="profile_detail"),
+
 
 ]

@@ -2,13 +2,26 @@
 
 {% load staticfiles %}
 {%block title%}
-    <title>Logged out</title>
+<title>Logged out</title>
 {%endblock%}
 
+{%block slideshow-wallpapers%}
+
+{%endblock%}
 {% block content %}
-<h2>You have been successfully logged out !</h2>
-<div>
-    <a class="logout_links "href="/"><h3>Go to homepage</h3></a>
-    <a class="logout_links" href="{% url 'login'%}"><h3>Login as another user</h3></a>
+<div class="container container-fluid">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <center><h2>You have been successfully logged out !</h2></center>
+        </div>
+        <div class="panel-body">
+            <center><a class="logout_links col-md-5 col-sm-5" href="/"><h3>Go to homepage</h3></a></center>
+            <a class="col-md-2 col-sm-2"></a>
+            <center><a class="logout_links col-md-5 col-sm-5" href="{% url 'login'%}"><h3>Login as another user</h3></a></center>
+
+        </div>
+
+    </div>
+
 </div>
 {% endblock %}

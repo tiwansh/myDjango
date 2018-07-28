@@ -4,13 +4,14 @@ from django.utils import timezone
 from django import forms
 from django.conf import settings
 
-
 # Create your models here.
+from tinymce.models import HTMLField
+
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = HTMLField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     post_image = models.FileField(blank=True)
@@ -24,6 +25,21 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/post/%i" % self.id
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now())
+    approved = models.BooleanField(default=True)
+
+    def approve(self):
+        self.approved = True
+        self.save()
+
+    def __str__(self):
+        return self.text
 
 
 class Profile(models.Model):
