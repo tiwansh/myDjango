@@ -1,0 +1,8 @@
+BeautifulSoup==3.2.1
+Django==1.11.13
+django-appconf==1.0.2
+django-tinymce4-lite==1.7.2
+jsmin==2.2.2
+Pillow==5.2.0
+pytz==2018.4
+virtualenv==16.0.0
