@@ -14,17 +14,10 @@
             //deletepost
         }
     }
-
-
-
-
-
-
-
-
-
-
-
+    tinymce.init({
+        selector: 'postcontent',  // change this value according to your HTML
+        encoding: 'xml'
+    });
 
 
 </script>
@@ -42,13 +35,17 @@
     {% endif %}
     <br>
 
+    <!--Post section begins from here-->
+
     <h1>{{ post.title }}</h1>
+    {% if post.post_image %}
     <img class="img img-responsive" src="{{ post.post_image.url }}" style="height:300px;width:auto">
     <br>
-    <p class="postcontent">{{ post.text|safe|linebreaksbr }}</p>
+    {% endif %}
+    <p id="postcontent">{{ post.text|safe }}</p>
     <br>
     {% if post.published_date %}
-    <div class="date">
+    <div class="date pull-right">
         {{ post.published_date }}
     </div>
     {% endif %}
@@ -57,6 +54,9 @@
             src="{%static 'img/share.png'%}" height="25px" width="25px"><a href="{% url 'post_share' pk=post.pk %}"
                                                                            style="color:white"> Share this post</a>
     </p></center>
+
+    <!--Comment section begins from here-->
+
     <div>
         <h3>Conversations</h3>
         <hr>

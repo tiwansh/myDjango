@@ -5,13 +5,13 @@ from django import forms
 from django.conf import settings
 
 # Create your models here.
-from tinymce.models import HTMLField
+from tinymce import HTMLField
 
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=200)
-    text = HTMLField()
+    text = HTMLField('Content')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     post_image = models.FileField(blank=True)

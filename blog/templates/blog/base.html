@@ -29,6 +29,15 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+    <script>
+    tinymce.init({
+        selector: 'textarea',  // change this value according to your HTML
+        encoding: 'xml'
+    });
+
+    </script>
 </head>
 <body>
 
@@ -92,34 +101,6 @@
     </div>
 </nav>
 
-<!-- <div class="page-header">
-    <span class="head"><img src="{% static " img/logo.png" %}" height = "60" width = "80" display = "inline"/> </span>
-    <span class="head"><h1><a href="/">Elixir</a></h1></span>
-
-    <span class="head" style="float:right">
-        <span class="button-span">
-            <a href="{% url 'about_admins' %}" class="myButton">About admins</a>
-            <a href="#" class="myButton">Contact</a>
-            <a href="{% url 'signup' %}" class="myButton">Register</a>
-        </span>
-        <span>
-            <div>
-                {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="myButton">+ Add post</a>
-                {% else %}
-                <a href="{% url 'login'%}" class="myButton">Log In</a>
-                {% endif %}
-            </div>
-
-        </span>
-        <span>
-            {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}" class="myButton">Logout</a>
-            {% endif %}
-        </span>
-    </span>
-</div> -->
-
 {% block slideshow-wallpapers %}
 <div class="w3-content w3-display-container" style="display:block">
     <img class="mySlides img-responsive" src="{% static 'img/image1.jpg'%}" style="width:100%">
@@ -134,6 +115,7 @@
     <div class="row">
         <div class="col-md-8">
             {% block content %}
+
             {% endblock %}
         </div>
     </div>
@@ -198,12 +180,6 @@
 <center><p style="font-weight:bold">&copy; Anshuman Tiwari</p></center>
 <script type="text/javascript">
 	carousel();
-
-
-
-
-
-
 </script>
 </body>
 </html>

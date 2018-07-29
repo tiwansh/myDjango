@@ -23,7 +23,7 @@ REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 SECRET_KEY = '&&%lh08e=)4s(!z4i=spn!n70j%d1f2if5rene57j$vl)hgk3f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tiwansh.pythonanywhere.com']
 
@@ -113,13 +113,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # TinyMCE editor setting variables
-TINYMCE_JS_URL = os.path.join(MEDIA_URL, 'js/tiny_mce/tiny_mce.js')
-TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'js/tiny_mce')
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace",
-    'theme': "advanced",
+    'height': 360,
+    'width': 1120,
     'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
 }
-TINYMCE_SPELLCHECKER = True
-TINYMCE_COMPRESSOR = True
