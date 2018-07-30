@@ -4,35 +4,40 @@
 <title>Share post</title>
 {%endblock%}
 
-{% block content %}
-{% if sent %}
-<h1>E-mail successfully sent</h1>
-<p>"{{ post.title }}" was successfully sent by e-mail.</p>
-{% else %}
-<h1>Share `{{ post.title }}` by e-mail</h1>
-<!--<form action="." method="POST">-->
-<!--{{ form.as_p }}-->
-<!--{% csrf_token %}-->
-<!--<input type="submit" >-->
-<!--</form>-->
+{%block slideshow-wallpapers%}
 
-<div class="form-group">
-    <form enctype="multipart/form-data" method="POST" class="form-horizontal">
-        {% csrf_token %}
-        <br>
-        {% for field in form %}
-        <label class=""><h4>{{ field.label_tag}}</h4></label>
-        <div class="" style="border:none;">{{ field }}</div>
-        <br>
-        {% endfor %}
-        <br>
-        <center>
-            <div>
-                <button class="button" type="submit" value="Send e-mail">Send <Email>`      </Email></button>
+{%endblock%}
+
+{% block content %}
+<div class="container container-fluid">
+    <div class="row">
+        {% if sent %}
+        <h1>E-mail successfully sent</h1>
+        <p>"{{ post.title }}" was successfully sent by e-mail.</p>
+        {% else %}
+        <center><h1>Share `{{ post.title }}` by e-mail</h1></center>
+
+        <form enctype="multipart/form-data" method="POST" class="form-horizontal">
+            <div class="form-group">
+                {% csrf_token %}
+                <br>
+                {% for field in form %}
+                <label class="control-label">{{ field.label_tag}}</label>
+                <div class="" style="border:none;">{{ field }}</div>
+                <br>
+                {% endfor %}
+                <br>
             </div>
-        </center>
-    </form>
+            <center>
+                <div>
+                    <button class="btn btn-primary" type="submit" value="Send e-mail">Send
+                    </button>
+                </div>
+            </center>
+        </form>
+
+        {% endif %}
+    </div>
 </div>
 
-{% endif %}
 {% endblock %}

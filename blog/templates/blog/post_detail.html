@@ -6,6 +6,11 @@
 
 {%endblock%}
 
+{%block title%}
+<title>{{post.title}}</title>
+{%endblock%}
+
+
 {% block content %}
 
 <script>
@@ -22,11 +27,7 @@
 
 </script>
 
-{%block title%}
-<title>{{post.title}}</title>
-{%endblock%}
-
-<div class="post">
+<div class="container container-fluid">
     {% if user.is_authenticated and post_author == request_user %}
     <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"
@@ -34,65 +35,86 @@
             class="glyphicon glyphicon-trash"></span></a>
     {% endif %}
     <br>
-
-    <!--Post section begins from here-->
-
-    <h1>{{ post.title }}</h1>
-    {% if post.post_image %}
-    <img class="img img-responsive" src="{{ post.post_image.url }}" style="height:300px;width:auto">
-    <br>
-    {% endif %}
-    <p id="postcontent">{{ post.text|safe }}</p>
-    <br>
-    {% if post.published_date %}
-    <div class="date pull-right">
-        {{ post.published_date }}
+    <div class="row">
+        <h1 class="text-center"><big>{{ post.title }}</big></h1>
+        <br>
+        <center>
+            <div class="col-md-12 col-xs-12">
+                {% if post.post_image %}
+                <img class="img img-responsive" src="{{ post.post_image.url }}" style="height:300px;width:auto">
+                <br>
+                {% endif %}
+            </div>
+        </center>
     </div>
-    {% endif %}
-    <br>
-    <center><p style="background-color:blue;display:table;border-radius:1px;padding:6px;color:white"><img
-            src="{%static 'img/share.png'%}" height="25px" width="25px"><a href="{% url 'post_share' pk=post.pk %}"
-                                                                           style="color:white"> Share this post</a>
-    </p></center>
+    <hr>
+    <div class="row">
+        <div class="hidden-sm hidden-xs col-md-2 col-lg-2 text-center">
+            <center><img src="{{ post.author.profile.profile_picture.url }}"
+                         class="img-responsive img-circle"
+                         style="height:120px;width:120px"></center>
+            <hr>
+            <h3>{{ post.author.first_name }} {{post.author.last_name}}</h3>
+            <h4>From {{ post.author.profile.location }}</h4>
+            <hr>
+            <h5>{{ post.published_date }}</h5>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="overflow:auto">
+            <h6>{{ post.text|safe }}</h6>
+        </div>
+        <div class="hidden-sm hidden-xs col-md-2 col-lg-2">
+            <br>
+            <a href="{% url 'post_share' pk=post.pk %}">
+                <button class="btn btn-primary">Share this post</button>
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <br>
+        <a href="{% url 'post_share' pk=post.pk %}">
+            <button class="btn btn-primary">Share this post</button>
+        </a>
+    </div>
 
-    <!--Comment section begins from here-->
+    <!--Comment section code-->
 
-    <div>
-        <h3>Conversations</h3>
+    <div class="row">
+        <center>
+            <h3>Conversations</h3>
+        </center>
         <hr>
         {% if user.is_authenticated %}
-        <div>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {% for field in comment_form %}
-                <label class="" style="border:none">Add comment</label>
-                <div class="" style="border:none;">{{ field }}</div>
-                <br>
-                {% endfor %}
-                <input class="btn btn-default" type="submit" name="Add comment" value="Add comment">
-            </form>
-        </div>
+        <center>
+            <div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for field in comment_form %}
+                    <label class="" style="border:none">Add comment</label>
+                    <div class="" style="border:none;">{{ field }}</div>
+                    <br>
+                    {% endfor %}
+                    <input class="btn btn-default" type="submit" name="Add comment" value="Add comment">
+                </form>
+            </div>
+        </center>
         {% endif %}
         <hr>
-        <div class="paragraphs">
-            {% for comment in comments %}
-            <div class="row">
-                <div class="span4">
-                    <div class="clearfix content-heading">
-                        <!--TODO add image of user-->
-                        <img src="{{ comment.author.profile.profile_picture.url }}"
-                             class="img-responsive img-circle pull-left"
-                             style="height:60px;width:60px">
-                        <h4>&nbsp;&nbsp;{{ comment.author }}</h4>
-                        <p>&nbsp;&nbsp;{{comment.text}}</p>
-                    </div>
+        {% for comment in comments %}
+        <div class="row">
+            <div class="span4">
+                <div class="clearfix content-heading">
+                    <!--TODO add image of user-->
+                    <center><img src="{{ comment.author.profile.profile_picture.url }}"
+                                 class="img-responsive img-circle pull-left"
+                                 style="height:60px;width:60px"></center>
+                    <h4>&nbsp;&nbsp;{{ comment.author }}</h4>
+                    <p>&nbsp;&nbsp;{{comment.text}}</p>
                 </div>
             </div>
-            <br>
-            {% endfor %}
         </div>
+        <br>
+        {% endfor %}
     </div>
-
-
 </div>
+
 {% endblock %}

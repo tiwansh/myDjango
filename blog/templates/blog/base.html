@@ -37,6 +37,8 @@
         encoding: 'xml'
     });
 
+
+
     </script>
 </head>
 <body>
@@ -111,15 +113,10 @@
 <br>
 {% endblock %}
 
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-            {% block content %}
 
-            {% endblock %}
-        </div>
-    </div>
-</div>
+{% block content %}
+
+{% endblock %}
 
 
 <!-- ---------------------------NEWS SECTION BEGINS--------------------
@@ -180,6 +177,8 @@
 <center><p style="font-weight:bold">&copy; Anshuman Tiwari</p></center>
 <script type="text/javascript">
 	carousel();
+
+
 </script>
 </body>
 </html>

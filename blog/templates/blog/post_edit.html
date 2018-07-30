@@ -10,11 +10,20 @@
 <title>Edit post</title>
 {%endblock%}
 
-{{ form.media }}
-<h1>New Post</h1>
-<form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %}
-    {{ form.as_p}}
-    <button type="submit" class="save btn btn-default">Save</button>
-</form>
+<div class="container container-fluid">
+    <div class="row">
+        {{ form.media }}
+        <h1 class="text-center">New Post</h1>
+        <form enctype="multipart/form-data" method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <br>
+            <center>
+                <button type="submit" class="btn btn-default">Save</button>
+            </center>
+        </form>
+    </div>
+</div>
+
 
 {% endblock %}

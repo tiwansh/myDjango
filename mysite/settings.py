@@ -23,7 +23,7 @@ REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 SECRET_KEY = '&&%lh08e=)4s(!z4i=spn!n70j%d1f2if5rene57j$vl)hgk3f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tiwansh.pythonanywhere.com']
 
