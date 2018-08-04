@@ -112,7 +112,7 @@ def signup(request):
             login(request, user)
             # profile = request.user.profile
             # form = ProfileForm(instance=profile)
-            return redirect('/')
+            return render(request, 'blog/welcome_page.html', {})
     else:
         form = SignupForm()
     return render(request, 'blog/signup.html', {'form': form})
@@ -168,3 +168,7 @@ def profile_update(request):
 def profile_detail(request):
     form = ProfileForm(request.POST, request.FILES)
     return render(request, 'blog/profile_detail.html', {'form': form})
+
+@login_required()
+def welcome(request):
+    return render(request, 'blog/welcome_page.html', {})

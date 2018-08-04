@@ -1,0 +1,57 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{%block slideshow-wallpapers%}
+{%endblock%}
+
+{%block title%}
+<title>Welcome to Elixir!</title>
+{%endblock%}
+
+{% block content %}
+<div class="jumbotron text-center" style="background-color:#78a3e8">
+    <h1>Welcome to Elixir, {{request.user.first_name}}!</h1>
+    <p>A place to spread your ideas.</p>
+</div>
+<div class="container container-fluid text-center" style="background-color:#ffffff;padding:60px 50px">
+    <div class="col-md-8">
+        <h2>Go ahead and tell us something about yourself.</h2>
+        <p>Let us know where you are from and what drives you.</p>
+        <a href="{% url 'profile_update' %}">
+            <button class="btn btn-default btn-lg">Update your profile</button>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <span class="glyphicon glyphicon-user" style="font-size:150px"></span>
+    </div>
+</div>
+<br><br>
+<div class="container container-fluid text-center" style="padding:60px 50px">
+    <div class="col-md-4">
+        <span class="glyphicon glyphicon-edit" style="font-size:150px"></span>
+    </div>
+    <div class="col-md-8">
+        <h2>Start posting.</h2>
+        <p>Let's create a fresh blog post.</p>
+        <a href="{% url 'post_new' %}">
+            <button class="btn btn-default btn-lg">Create post</button>
+        </a>
+    </div>
+</div>
+<br><br>
+<div class="container container-fluid text-center" style="padding:60px 50px">
+    <div class="col-md-8">
+        <h2>Or skip to look at the amazing posts.</h2>
+        <p>Click on the Profile icon in the navigation bar and update profile on the go.</p>
+        <a href="{% url 'post_list' %}">
+            <button class="btn btn-default btn-lg">Skip</button>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <span class="glyphicon glyphicon-new-window" style="font-size:150px"></span>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}
