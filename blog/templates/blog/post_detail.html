@@ -1,24 +1,29 @@
 {% extends 'blog/base.html' %}
-
 {% load staticfiles %}
 
 {%block slideshow-wallpapers%}
-
 {%endblock%}
 
 {%block title%}
 <title>{{post.title}}</title>
 {%endblock%}
 
+{% block add_meta_content %}
+<meta property="og:url" content="{{ post.url}}"/>
+<meta property="og:type" content="https://www.tiwansh.pythonanywhere.com/"/>
+<meta property="og:title" content="{{post.title}}"/>
+<meta property="og:description" content="{{post.text|safe|truncatewords:100}}"/>
+<meta property="og:image" content="{{post.post_image.url}}"/>
+{% endblock %}
 
 {% block content %}
-
 <script>
     function compliance(){
         if(confirm("Are you sure you want to delete this post ?")){
             //deletepost
         }
-    }
+    };
+
     tinymce.init({
         selector: 'postcontent',  // change this value according to your HTML
         encoding: 'xml'
@@ -26,35 +31,19 @@
 
 
 
-
-
-
-
-
-
-
-
 </script>
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-
-
-
-
-
-
-
+<script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
 </script>
-
 <div class="container container-fluid">
     {% if user.is_authenticated and post_author == request_user %}
     <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -90,27 +79,46 @@
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="overflow:auto">
             <h6>{{ post.text|safe }}</h6>
         </div>
+        <!--Social media sharing section begins-->
         <div class="hidden-sm hidden-xs col-md-2 col-lg-2 text-center">
             <br>
-            <a href="{% url 'post_share' pk=post.pk %}">
-                <button class="btn btn-primary">Share this post</button>
-                <br><br>
-                <!--facebok share button-->
-                <div class="fb-share-button" data-href="https://www.google.com" data-layout="button"
-                     data-size="large"
-                     data-mobile-iframe="false"><a target="_blank"
-                                                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.com%2F&amp;src=sdkpreparse"
-                                                   class="fb-xfbml-parse-ignore">Share</a>
+            <!--share by email button-->
+            <center>
+                <div>
+                    <a href="{% url 'post_share' pk=post.pk %}">
+                        <button class="btn btn-primary">Share this post</button>
+                    </a>
                 </div>
-                <br><br>
-                <!--Twitter share button-->
+            </center>
+            <br>
+            <!--facebok share button-->
+            <center>
+                <div class="fb-share-button" data-href="{{post.url}}"
+                     data-layout="button" data-size="large" data-mobile-iframe="false"><a
+                        target="{{post.url}}"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                        class="fb-xfbml-parse-ignore">Share</a>
+                </div>
+            </center>
+            <br>
+            <!--Twitter share button-->
+            <center>
                 <div class="twitter">
-                    <a class="twitter-share-button"
-                       href="https://twitter.com/intent/tweet?text=Hello%20world"
-                       data-size="large">
-                        Tweet</a>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                       data-size="large"
+                       data-text="{{post.title}}" data-url="{{post.url}}" data-via="useritsame" data-hashtags="elixir"
+                       data-related="ansuman" data-show-count="false">Tweet</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
-            </a>
+            </center>
+            <br>
+            <!--Linkedin share button-->
+            <center>
+                <div>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                    <script type="IN/Share" data-url="{{post.url}}"></script>
+                </div>
+            </center>
         </div>
     </div>
     <div class="row text-center">

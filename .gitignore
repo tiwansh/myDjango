@@ -3,3 +3,4 @@ settings.py
 blog/migrations
 *.pyc
 media/
+.idea/
