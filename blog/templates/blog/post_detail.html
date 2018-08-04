@@ -1,6 +1,14 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 
+{% block add_meta_content %}
+<meta property="og:url" content="{{post.url}}"/>
+<meta property="og:type" content="http://www.tiwansh.pythonanywhere.com/"/>
+<meta property="og:title" content="{{post.title|safe}}"/>
+<meta property="og:description" content="{{post.text|safe|truncatewords:100}}"/>
+<meta property="og:image" content="{{post.post_image.url}}"/>
+{% endblock %}
+
 {%block slideshow-wallpapers%}
 {%endblock%}
 
@@ -8,13 +16,6 @@
 <title>{{post.title}}</title>
 {%endblock%}
 
-{% block add_meta_content %}
-<meta property="og:url" content="{{ post.url}}"/>
-<meta property="og:type" content="https://www.tiwansh.pythonanywhere.com/"/>
-<meta property="og:title" content="{{post.title}}"/>
-<meta property="og:description" content="{{post.text|safe|truncatewords:100}}"/>
-<meta property="og:image" content="{{post.post_image.url}}"/>
-{% endblock %}
 
 {% block content %}
 <script>
@@ -31,6 +32,7 @@
 
 
 
+
 </script>
 
 <div id="fb-root"></div>
@@ -42,6 +44,8 @@
       js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+
 
 </script>
 <div class="container container-fluid">
@@ -126,13 +130,6 @@
         <a href="{% url 'post_share' pk=post.pk %}">
             <button class="btn btn-primary">Share this post</button>
             <br>
-            <center>
-                <div class="fb-share-button" data-href="https://www.google.com" data-layout="button" data-size="large"
-                     data-mobile-iframe="false"><a target="_blank"
-                                                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.com%2F&amp;src=sdkpreparse"
-                                                   class="fb-xfbml-parse-ignore">Share</a>
-                </div>
-            </center>
         </a>
     </div>
 
