@@ -1,3 +1,8 @@
+import json
+import urllib
+import urllib2
+
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
@@ -111,22 +116,23 @@ def about_admins(request):
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and recaptcha_status(request):
             user = form.save(commit=False)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user.is_active = False
-            # TODO send email with token to user
+            user.save()
+
+            # Sending email with token to user
             current_site = get_current_site(request)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = account_activation_token.make_token(user)
             message = ("Hi {}, Please click on the link to confirm your registration, \
                        http://{}/activate/{}/{}").format(user.username, current_site.domain, uid, token)
-            user.save()
+
             send_mail("Activate your Elixir Account!", message, 'thelixirblog@gmail.com', [user.email])
-            # TODO redirect user to page where they see email verification has been sent
-            # user = authenticate(username=username, password=raw_password)
-            # login(request, user)
+
+            # Redirect user to page where they see email verification has been sent
             return render(request, 'blog/email_verification.html', {})
     else:
         form = SignupForm()
@@ -203,3 +209,19 @@ def activate_account(request, uidb64, token):
         user.save()
         login(request, user)
         return redirect('welcome')
+
+def recaptcha_status(request):
+    recaptcha_response = request.POST.get('g-recaptcha-response')
+    url = 'https://www.google.com/recaptcha/api/siteverify'
+    values = {
+        'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+        'response': recaptcha_response
+    }
+    data = urllib.urlencode(values)
+    req = urllib2.Request(url, data)
+    response = urllib2.urlopen(req)
+    result = json.load(response)
+
+    if result['success']:
+        return True
+    return False
