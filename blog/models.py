@@ -15,6 +15,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     post_image = models.FileField(blank=True)
+    draft = models.BooleanField(default=True)
 
     def publish(self):
         self.published_date = timezone.now()

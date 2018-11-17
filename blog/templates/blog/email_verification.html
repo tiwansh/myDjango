@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{%block slideshow-wallpapers%}
+{%endblock%}
+
+{%block title%}
+<title>Verify email!</title>
+{%endblock%}
+
+{% block content %}
+<div class="container container-fluid">
+    <div class="row" style="padding:50px">
+        <center>
+            <img class="img img-responsive img-circle" src="{% static 'img/verify_email.png' %}"
+                 style="width:300px;height:300px">
+        </center>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-8">
+            <h1>An email verification has been sent to your registered email id.</h1>
+            <p>Please click the link in your inbox to activate your account.</p>
+        </div>
+        <div class="col-md-4">
+            <span class="glyphicon glyphicon-ok-circle" style="font-size:150px;color:blue"></span>
+        </div>
+    </div>
+</div>
+{% endblock %}

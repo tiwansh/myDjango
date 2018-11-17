@@ -1,6 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.encoding import force_text, force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+
+from blog.token_generator import account_activation_token
 from .models import Post, Profile, Comment
 from django.utils import timezone
 from .forms import PostForm, SignupForm, ProfileForm, CommentForm
@@ -15,7 +20,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).filter(draft=False).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -51,11 +56,12 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
+            post.draft = 0
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, "blog/post_edit.html", {'form': form})
 
 
 @login_required()
@@ -67,11 +73,12 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
+            post.draft = 1
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'post_edit', {'form': form})
 
 
 def post_share(request, pk):
@@ -87,7 +94,7 @@ def post_share(request, pk):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'], post.title)
             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
-            send_mail(subject, message, 'anshumansblog@mail.com', [cd['to']])
+            send_mail(subject, message, 'thelixirblog@gmail.com', [cd['to']])
             sent = True
     else:
         form = EmailPostForm()
@@ -105,14 +112,22 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            # profile = request.user.profile
-            # form = ProfileForm(instance=profile)
-            return render(request, 'blog/welcome_page.html', {})
+            user.is_active = False
+            # TODO send email with token to user
+            current_site = get_current_site(request)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = account_activation_token.make_token(user)
+            message = ("Hi {}, Please click on the link to confirm your registration, \
+                       http://{}/activate/{}/{}").format(user.username, current_site.domain, uid, token)
+            user.save()
+            send_mail("Activate your Elixir Account!", message, 'thelixirblog@gmail.com', [user.email])
+            # TODO redirect user to page where they see email verification has been sent
+            # user = authenticate(username=username, password=raw_password)
+            # login(request, user)
+            return render(request, 'blog/email_verification.html', {})
     else:
         form = SignupForm()
     return render(request, 'blog/signup.html', {'form': form})
@@ -169,6 +184,22 @@ def profile_detail(request):
     form = ProfileForm(request.POST, request.FILES)
     return render(request, 'blog/profile_detail.html', {'form': form})
 
+
 @login_required()
 def welcome(request):
     return render(request, 'blog/welcome_page.html', {})
+
+
+def email_verification(request):
+    # TODO send email
+    return render(request, 'blog/email_verification.html', {})
+
+
+def activate_account(request, uidb64, token):
+    uid = force_text(urlsafe_base64_decode(uidb64))
+    user = User.objects.get(pk=uid)
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        return redirect('welcome')

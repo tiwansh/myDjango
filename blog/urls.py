@@ -17,7 +17,8 @@ urlpatterns = [
     url(r'^profile_update/$', views.profile_update, name="profile_update"),
     url(r'^profile_detail/$', views.profile_detail, name="profile_detail"),
     url(r'^welcome_page/$', views.welcome, name="welcome"),
-
-
+    url(r'^email_verification/$', views.email_verification, name="email_verification"),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate_account, name='activate'),
 
 ]
