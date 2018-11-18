@@ -61,7 +61,11 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
-            post.draft = 0
+            if "draft_button" in form.data:
+                #save as draft
+                post.draft = True
+            else:
+                post.draft = False
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -78,12 +82,16 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
-            post.draft = 1
+            if "draft_button" in form.data:
+                #save as draft
+                post.draft = True
+            else:
+                post.draft = False
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'post_edit', {'form': form})
+    return render(request, 'blog/post_edit.html', {'form': form})
 
 
 def post_share(request, pk):

@@ -84,6 +84,13 @@
                     </a>
                     {% endif %}
                 </li>
+                 {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'user_specific_posts' %}">
+                        <span class="glyphicon glyphicon-th-list">&ensp;My&ensp;Posts</span>
+                    </a>
+                </li>
+                {% endif %}
                 {% if user.is_authenticated %}
                 <li>
                     <a href="{% url 'profile_detail' %}">

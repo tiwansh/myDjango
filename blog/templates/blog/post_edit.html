@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{%  load staticfiles % }
 {%block slideshow-wallpapers%}
 
 {%endblock%}
@@ -10,36 +10,24 @@
 <title>Edit post</title>
 {%endblock%}
 
-<script>
-    function draft_func(){
-        var k = document.getElementById("draft_para");
-        k.innerHTML= "{{% set form.draft.value = checked %}}"
-    }
-
-</script>
 
 <div class="container container-fluid">
     <div class="row">
         {{ form.media }}
         <h1 class="text-center">New Post</h1>
-        <form enctype="multipart/form-data" method="POST" class="post-form" onsubmit="draft_func()">
+        <form enctype="multipart/form-data" method="POST" class="post-form">
             {% csrf_token %}
             <!--{{ form.as_p}}-->
             <!--', '', 'text', 'draft'-->
             {{ form.post_image }}
             {{ form.title }}
             {{ form.text }}
-            <p id="draft_para">
-                {{ form.draft }}
-            </p>
+            <!--Save as draft : {{ form.draft }}-->
             <br>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
+
             <center>
-                <button type="submit" class="btn btn-default">Save as Draft</button>
-                <button type="submit" class="btn btn-default">Publish</button>
+                <button type="submit" class="btn btn-default" name="draft_button">Save as Draft</button>
+                <button type="submit" class="btn btn-default" name="publish_button">Publish</button>
             </center>
         </form>
     </div>
