@@ -5,6 +5,10 @@
 
 {%endblock%}
 
+<script>
+
+</script>
+
 {% block content %}
 <div class="container container-fluid">
     <div class="row post">
@@ -37,4 +41,117 @@
 
     </div>
 </div>
+
+<div class="tab">
+    <button class="tablinks" onclick="openSegment(event, 'all_posts')">All Posts</button>
+    <button class="tablinks" onclick="openSegment(event, 'published')">Published</button>
+    <button class="tablinks" onclick="openSegment(event, 'drafts')">Drafts</button>
+</div>
+
+<div id="all_posts" class="tabcontent">
+    <div class="container container-fluid">
+        <div class="row post">
+            {% if posts %}
+            {% for post in posts %}
+            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|safe|linebreaksbr|truncatewords:100 }}</p>
+                <div class="date pull-right">
+                    {{ post.published_date }}
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="container container-fluid">
+                <div class="row" style="padding:50px">
+                    <center>
+                        <img class="img img-responsive img-circle" src="{% static 'img/empty.jpg' %}"
+                             style="width:300px;height:300px">
+                    </center>
+                </div>
+                <div class="row text-center">
+                    <div>
+                        <h1>Oh snap! It seems that you don't have any posts yet.</h1>
+                        <p>No worries. Click on the "Add post" option in the navigation bar to start posting.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+<div id="published" class="tabcontent">
+    <div class="container container-fluid">
+        <div class="row post">
+            {% if posts %}
+            {% for post in posts %}
+            {% if post.draft == False %}
+            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|safe|linebreaksbr|truncatewords:100 }}</p>
+                <div class="date pull-right">
+                    {{ post.published_date }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <div class="container container-fluid">
+                <div class="row" style="padding:50px">
+                    <center>
+                        <img class="img img-responsive img-circle" src="{% static 'img/empty.jpg' %}"
+                             style="width:300px;height:300px">
+                    </center>
+                </div>
+                <div class="row text-center">
+                    <div>
+                        <h1>Oh snap! It seems that you don't have any posts yet.</h1>
+                        <p>No worries. Click on the "Add post" option in the navigation bar to start posting.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+<div id="drafts" class="tabcontent">
+    <div class="container container-fluid">
+        <div class="row post">
+            {% if posts %}
+            {% for post in posts %}
+            {% if post.draft %}
+            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|safe|linebreaksbr|truncatewords:100 }}</p>
+                <div class="date pull-right">
+                    {{ post.published_date }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <div class="container container-fluid">
+                <div class="row" style="padding:50px">
+                    <center>
+                        <img class="img img-responsive img-circle" src="{% static 'img/empty.jpg' %}"
+                             style="width:300px;height:300px">
+                    </center>
+                </div>
+                <div class="row text-center">
+                    <div>
+                        <h1>Oh snap! It seems that you don't have any posts yet.</h1>
+                        <p>No worries. Click on the "Add post" option in the navigation bar to start posting.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
