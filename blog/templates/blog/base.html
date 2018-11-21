@@ -39,6 +39,7 @@
         content_style: 'img {max-width: 100%;}'
     });
 
+
     </script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -84,7 +85,7 @@
                     </a>
                     {% endif %}
                 </li>
-                 {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <li>
                     <a href="{% url 'user_specific_posts' %}">
                         <span class="glyphicon glyphicon-th-list">&ensp;My&ensp;Posts</span>
@@ -186,7 +187,9 @@
 <script type="text/javascript">
 	carousel();
 
-
+</script>
+<script type="text/javascript">
+    document.getElementById("defaultOpenPost").click();
 
 
 </script>
