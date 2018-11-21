@@ -62,7 +62,7 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             if "draft_button" in form.data:
-                #save as draft
+                # save as draft
                 post.draft = True
             else:
                 post.draft = False
@@ -83,7 +83,7 @@ def post_edit(request, pk):
             post.author = request.user
             post.published_date = timezone.now()
             if "draft_button" in form.data:
-                #save as draft
+                # save as draft
                 post.draft = True
             else:
                 post.draft = False
@@ -190,7 +190,8 @@ def profile_update(request):
     else:
         form = ProfileForm(instance=profile)
 
-    return render(request, 'blog/profile_update.html', {'form': form})
+    return render(request, 'blog/profile_update.html',
+                  {'form': form, 'profile_picture': request.user.profile.profile_picture})
 
 
 @login_required()
@@ -217,6 +218,7 @@ def activate_account(request, uidb64, token):
         user.save()
         login(request, user)
         return redirect('welcome')
+
 
 def recaptcha_status(request):
     recaptcha_response = request.POST.get('g-recaptcha-response')

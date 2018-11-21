@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa38aa13-1f76-460d-a9f9-41b64707b92c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/static/js/myLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/js/myLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/post_list_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/post_list_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/blog.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/profile_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/profile_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/myLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/myLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blog.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,56 +21,41 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="93" column="47" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
+            <state relative-caret-position="275">
+              <caret line="188" column="78" lean-forward="true" selection-start-line="188" selection-start-column="78" selection-end-line="188" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile_update.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_update.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
               <folding>
-                <element signature="e#897#1075#0" />
-                <element signature="e#1112#2101#0" />
-                <element signature="e#1265#1832#0" />
-                <element signature="e#1338#1832#0" />
-                <element signature="e#1678#1831#0" />
-                <element signature="e#1852#2101#0" />
-                <element signature="e#1951#2100#0" />
-                <element signature="e#3192#4124#0" />
-                <element signature="e#3314#3884#0" />
-                <element signature="e#3418#3884#0" />
-                <element signature="e#3977#4123#0" />
-                <element signature="e#4158#4232#0" />
-                <element signature="e#4382#5269#0" />
-                <element signature="e#4803#4916#0" />
-                <element signature="e#5500#5672#0" />
-                <element signature="e#5537#5607#0" />
-                <element signature="e#5709#5941#0" />
-                <element signature="e#5788#5857#0" />
-                <element signature="e#6216#6869#0" />
-                <element signature="e#6368#6742#0" />
-                <element signature="e#6474#6742#0" />
-                <element signature="e#6923#7041#0" />
-                <element signature="e#7088#7140#0" />
-                <element signature="e#7180#7260#0" />
-                <element signature="e#7313#7589#0" />
-                <element signature="e#7484#7589#0" />
-                <element signature="e#7511#7954#0" />
-                <element signature="e#7670#7808#0" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/models.py">
+      <file leaf-file-name="blog.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/static/css/blog.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="46" column="71" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
+            <state relative-caret-position="415">
+              <caret line="313" column="1" lean-forward="true" selection-start-line="313" selection-start-column="1" selection-end-line="313" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="194" column="9" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+            <state relative-caret-position="137">
+              <caret line="185" column="71" lean-forward="true" selection-start-line="185" selection-start-column="71" selection-end-line="185" selection-end-column="71" />
               <folding>
                 <element signature="e#3488#3494#0" expanded="true" />
                 <element signature="e#3781#3787#0" expanded="true" />
@@ -80,6 +63,51 @@
                 <element signature="e#3707#3713#0" expanded="true" />
                 <element signature="e#4355#4361#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about_admins.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/about_admins.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="17" column="49" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="49" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#center#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -160,7 +188,6 @@
         <option value="$PROJECT_DIR$/blog/templates/blog/email_verification.html" />
         <option value="$PROJECT_DIR$/blog/templates/token_generator.py" />
         <option value="$PROJECT_DIR$/blog/token_generator.py" />
-        <option value="$PROJECT_DIR$/blog/forms.py" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
         <option value="$PROJECT_DIR$/blog/templates/blog/profile_detail.html" />
         <option value="$PROJECT_DIR$/mysite/urls.py" />
@@ -169,13 +196,14 @@
         <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/blog/templates/blog/post_list.html" />
         <option value="$PROJECT_DIR$/blog/templates/blog/post_edit.html" />
-        <option value="$PROJECT_DIR$/blog/views.py" />
-        <option value="$PROJECT_DIR$/blog/static/css/blog.css" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/profile_update.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/blog/static/js/myLocation.js" />
         <option value="$PROJECT_DIR$/blog/templates/blog/post_list_user.html" />
         <option value="$PROJECT_DIR$/blog/templates/blog/base.html" />
+        <option value="$PROJECT_DIR$/blog/static/css/blog.css" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/profile_update.html" />
+        <option value="$PROJECT_DIR$/blog/views.py" />
+        <option value="$PROJECT_DIR$/blog/forms.py" />
       </list>
     </option>
   </component>
@@ -307,10 +335,10 @@
     <frame x="49" y="25" width="1317" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2179289" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2179289" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15294118" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15294118" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -373,8 +401,13 @@
           <line>93</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/blog/views.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -701,71 +734,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/static/css/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="252" column="27" lean-forward="true" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/about_admins.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#center#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="93" column="47" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
-          <folding>
-            <element signature="e#897#1075#0" />
-            <element signature="e#1112#2101#0" />
-            <element signature="e#1265#1832#0" />
-            <element signature="e#1338#1832#0" />
-            <element signature="e#1678#1831#0" />
-            <element signature="e#1852#2101#0" />
-            <element signature="e#1951#2100#0" />
-            <element signature="e#3192#4124#0" />
-            <element signature="e#3314#3884#0" />
-            <element signature="e#3418#3884#0" />
-            <element signature="e#3977#4123#0" />
-            <element signature="e#4158#4232#0" />
-            <element signature="e#4382#5269#0" />
-            <element signature="e#4803#4916#0" />
-            <element signature="e#5500#5672#0" />
-            <element signature="e#5537#5607#0" />
-            <element signature="e#5709#5941#0" />
-            <element signature="e#5788#5857#0" />
-            <element signature="e#6216#6869#0" />
-            <element signature="e#6368#6742#0" />
-            <element signature="e#6474#6742#0" />
-            <element signature="e#6923#7041#0" />
-            <element signature="e#7088#7140#0" />
-            <element signature="e#7180#7260#0" />
-            <element signature="e#7313#7589#0" />
-            <element signature="e#7484#7589#0" />
-            <element signature="e#7511#7954#0" />
-            <element signature="e#7670#7808#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="46" column="71" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -783,30 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_update.html">
+    <entry file="file://$PROJECT_DIR$/blog/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1211">
-          <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="252">
+          <caret line="46" column="71" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -825,16 +777,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/static/css/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="313" column="1" lean-forward="true" selection-start-line="313" selection-start-column="1" selection-end-line="313" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="194" column="9" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+        <state relative-caret-position="137">
+          <caret line="185" column="71" lean-forward="true" selection-start-line="185" selection-start-column="71" selection-end-line="185" selection-end-column="71" />
           <folding>
             <element signature="e#3488#3494#0" expanded="true" />
             <element signature="e#3781#3787#0" expanded="true" />
             <element signature="e#3789#3795#0" expanded="true" />
             <element signature="e#3707#3713#0" expanded="true" />
             <element signature="e#4355#4361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/about_admins.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#center#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/profile_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="188" column="78" lean-forward="true" selection-start-line="188" selection-start-column="78" selection-end-line="188" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

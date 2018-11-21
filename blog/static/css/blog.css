@@ -278,3 +278,37 @@ nav span{
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.form-control {
+    border: 0;
+    box-shadow: none;
+}
+container{
+    border: 0;
+    box-shadow: none;
+}
+
+panel{
+    border: 0;
+    box-shadow: none;
+}
+
+panel-body{
+    border: 0;
+    box-shadow: none;
+}
+
+form-horizontal{
+    border: 0;
+    box-shadow: none;
+}
+
+form-group{
+    border: 0;
+    box-shadow: none;
+}
+
+control-label{
+    border: 0;
+    box-shadow: none;
+}
