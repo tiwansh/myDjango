@@ -71,7 +71,7 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-	  background:  #080808;
+	  background:  none;
 	  text-align: center;
 	  /*border-radius: 10px;*/
 	  /*margin: 10px;*/
@@ -249,9 +249,10 @@ nav span{
 }
 
 .tab {
+    padding-left: 10px;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /*border: 1px solid #ccc;*/
+    background-color: none;
 }
 
 .tab button {
