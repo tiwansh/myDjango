@@ -19,8 +19,11 @@
             {% csrf_token %}
             <!--{{ form.as_p}}-->
             <!--', '', 'text', 'draft'-->
+            <h3>Header image</h3>
             {{ form.post_image }}
+            <h3>Title</h3>
             {{ form.title }}
+            <h3>Post</h3>
             {{ form.text }}
             <!--Save as draft : {{ form.draft }}-->
             <br>
