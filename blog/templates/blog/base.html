@@ -41,6 +41,7 @@
 
 
 
+
     </script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -185,23 +186,55 @@
                                                                               height="25" width="25"></a></span>
 </div>
 <br>
-<center><p>Made with <img src="{% static 'img/heart_icon.png' %}" height="30" width="30">, <img src="{% static 'img/music_icon.png' %}" height="30" width="30"> and some <img src="{% static 'img/coffee_icon.png' %}" height="25" width="25"> by <a href="https://www.linkedin.com/in/anshuman-tiwari-37324378/" >@tiwansh</a></p></center>
+<center><p>Made with <img src="{% static 'img/heart_icon.png' %}" height="30" width="30">, <img
+        src="{% static 'img/music_icon.png' %}" height="30" width="30"> and some <img
+        src="{% static 'img/coffee_icon.png' %}" height="25" width="25"> by <a
+        href="https://www.linkedin.com/in/anshuman-tiwari-37324378/">@tiwansh</a></p></center>
 
 <center><p style="font-weight:bold">&copy; 2018 Anshuman Tiwari</p></center>
 <script type="text/javascript">
 	carousel();
 
 
+
 </script>
 <script type="text/javascript">
     document.getElementById("defaultOpenPost").click();
 
+
 </script>
 
 <script>
-$("#profilepicture").change(function() {
-    readURL(this);
-});
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imageDisplay')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+</script>
+
+
+<script>
+     function readURLheaderImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#headerImageDisplay')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
 </script>
 
 </body>

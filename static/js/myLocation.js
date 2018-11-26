@@ -76,20 +76,3 @@ function openSegment(evt, segment){
         evt.currentTarget.className += " active";
 }
 
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#profilePictureDisplay').attr('src', 'url('+e.target.result +')');
-            $('#profilePictureDisplay').hide();
-            $('#profilePictureDisplay').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$("#profilepicture").change(function() {
-    readURL(this);
-});
-
-

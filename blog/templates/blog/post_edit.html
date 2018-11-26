@@ -19,8 +19,19 @@
             {% csrf_token %}
             <!--{{ form.as_p}}-->
             <!--', '', 'text', 'draft'-->
+
+            <center>
+                <img src="{{ post_image_from_view.url }}" class="img-responsive" id="headerImageDisplay" style="height:50%">
+            </center>
+            <br>
+
+
             <h3>Header image</h3>
-            {{ form.post_image }}
+            <label id="uploadHeaderImageButton" class="btn btn-default" style=""> Upload image
+                <input type="file" id="{{ form.post_image.id_for_label }}"
+                       name="{{ form.post_image.name }}" style="display:none"
+                       value="{{ form.post_image.value }}" onchange="readURLheaderImage(this);">
+            </label>
             <h3>Title</h3>
             {{ form.title }}
             <h3>Post</h3>
