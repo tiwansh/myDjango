@@ -50,7 +50,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         widgets = {'bio': forms.Textarea(attrs={'cols': 20, 'rows': 4}),
                    'location': forms.TextInput(attrs={'size': 20}),
-                   'date_of_birth': forms.TextInput(attrs={'placeholder': 'MM/DD/YYYY Format'}),
+                   'date_of_birth': forms.DateInput(attrs={'class': 'datepicker'}),
                    }
         fields = {'bio', 'location', 'profile_picture', 'date_of_birth'}
 

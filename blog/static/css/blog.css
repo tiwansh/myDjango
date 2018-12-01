@@ -282,6 +282,7 @@ nav span{
     border: 0;
     box-shadow: none;
 }
+
 container{
     border: 0;
     box-shadow: none;
@@ -311,3 +312,8 @@ control-label{
     border: 0;
     box-shadow: none;
 }
+
+nav span{
+     border: 0;
+     box-shadow: none;
+ }

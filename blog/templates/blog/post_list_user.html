@@ -6,7 +6,9 @@
 {%endblock%}
 
 {%block content%}
-
+<div style="padding-left:20px">
+    <h1>Your Posts</h1>
+</div>
 <div class="tab">
     <button class="tablinks active" onclick="openSegment(event, 'all_posts')" id="defaultOpenPost">All Posts</button>
     <button class="tablinks" onclick="openSegment(event, 'published')">Published</button>
@@ -22,7 +24,7 @@
             {% if posts %}
             {% for post in posts %}
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
                 <p>{{ post.text|safe|linebreaksbr|truncatewords:100 }}</p>
                 <div class="date pull-right">
                     {{ post.published_date }}
@@ -57,7 +59,7 @@
             {% for post in posts %}
             {% if post.draft == False %}
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
                 <p>{{ post.text|safe|linebreaksbr|truncatewords:100 }}</p>
                 <div class="date pull-right">
                     {{ post.published_date }}

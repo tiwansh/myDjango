@@ -31,7 +31,7 @@
                                  style="height:200px;width:200px;object-fit:cover;">
                             <br>
                             <div class="form-control" style="border:none">
-                                <label id="uploadButton" class="btn btn-default" style=""> Upload image
+                                <label id="uploadButton" class="btn btn-default"> Upload image
                                     <input type="file" id="{{ form.profile_picture.id_for_label }}"
                                            name="{{ form.profile_picture.name }}" style="display:none"
                                            value="{{ form.profile_picture.value }}" onchange="readURL(this);">
@@ -41,20 +41,21 @@
                             <br>
                             <br>
                             <label class="control-label col-sm-2" for="bio">Your Bio:</label>
-                            <div class="form-control" id="bio">
+                            <div class="form-control" id="bio" style="border:none">
                                 {{ form.bio }}
                             </div>
                             <br>
                             <br>
                             <br>
                             <label class="control-label col-sm-2" for="location">Location:</label>
-                            <div class="form-control" id="location">
+                            <div class="form-control" id="location" style="border:none">
                                 {{ form.location }}
                             </div>
 
                             <label class="control-label col-sm-2" for="dateofbirth">Date of Birth:</label>
-                            <div class="form-control" id="dateofbirth">
-                                {{ form.date_of_birth }}
+                            <div class="form-control" style="border:none">
+                                <input type="text" id="dateofbirth" name="{{ form.date_of_birth.name }}"
+                                       value="{{ form.date_of_birth.value }}">
                             </div>
                         </div>
                         <center>
