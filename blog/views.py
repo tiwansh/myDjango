@@ -57,8 +57,6 @@ def post_detail(request, pk):
 
 @login_required
 def post_new(request):
-    default_header_image_path = os.path.join(os.getcwd() + '/blog/static/img/default_header_image.png')
-    default_header_image = Image.open(default_header_image_path)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -74,7 +72,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, "blog/post_edit.html", {'form': form, "post_image_from_view": default_header_image})
+    return render(request, "blog/post_edit.html", {'form': form, "post_image_from_view": None})
 
 
 @login_required()
