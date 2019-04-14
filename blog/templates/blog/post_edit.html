@@ -17,12 +17,9 @@
         <h1 class="text-center">New Post</h1>
         <form enctype="multipart/form-data" method="POST" class="post-form">
             {% csrf_token %}
-            <!--{{ form.as_p}}-->
-            <!--', '', 'text', 'draft'-->
-
             <center>
                 <img src="{{ post_image_from_view.url }}" class="img-responsive" id="headerImageDisplay"
-                     style="height:50%" >
+                     style="height:50%; display:none;" >
             </center>
             <br>
 
