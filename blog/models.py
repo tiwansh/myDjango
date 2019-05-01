@@ -47,7 +47,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=100, blank=True)
     location = models.TextField(max_length=50, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    profile_picture = models.FileField(default='default_pic.png')
+    profile_picture = models.ImageField(default='default_pic.png', upload_to='media/', null=True, blank=True)
 
     def __str__(self):
         return self.bio

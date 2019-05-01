@@ -52,10 +52,9 @@
                                 {{ form.location }}
                             </div>
 
-                            <label class="control-label col-sm-2" for="dateofbirth">Date of Birth:</label>
+                            <label class="control-label col-sm-2" >Date of Birth:</label>
                             <div class="form-control" style="border:none">
-                                <input type="text" id="dateofbirth" name="{{ form.date_of_birth.name }}"
-                                       value="{{ form.date_of_birth.value }}">
+                                {{ form.date_of_birth }}
                             </div>
                         </div>
                         <center>
